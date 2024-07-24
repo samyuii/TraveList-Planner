@@ -42,23 +42,25 @@ export default function PackingList({
 
   return (
     <div className="list w-full max-w-3xl bg-white p-8 rounded-lg shadow-lg mt-8">
-      <input
-        type="text"
-        placeholder="Search items..."
-        className="w-full py-2 px-4 border border-gray-300 rounded-lg text-base mb-4"
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-      />
-      <select
-        className="w-full py-2 px-4 border border-gray-300 rounded-lg text-base mb-4"
-        value={sortBy}
-        onChange={(e) => setSortBy(e.target.value)}
-      >
-        <option value="input">Sort by Input</option>
-        <option value="description">Sort by Description</option>
-        <option value="packed">Sort by Packed Status</option>
-        <option value="dueDate">Sort by Due Date</option>
-      </select>
+      <div className="flex flex-wrap gap-4 mb-4">
+        <input
+          type="text"
+          placeholder="Search items..."
+          className="flex-grow py-2 px-4 border border-gray-300 rounded-lg text-base"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+        <select
+          className="w-full sm:w-auto py-2 px-4 border border-gray-300 rounded-lg text-base"
+          value={sortBy}
+          onChange={(e) => setSortBy(e.target.value)}
+        >
+          <option value="input">Sort by Input</option>
+          <option value="description">Sort by Description</option>
+          <option value="packed">Sort by Packed Status</option>
+          <option value="dueDate">Sort by Due Date</option>
+        </select>
+      </div>
       <div className="flex flex-wrap gap-2 mb-4 overflow-x-auto">
         <button
           className={`py-2 px-4 rounded-lg text-base cursor-pointer transition duration-300 ${
